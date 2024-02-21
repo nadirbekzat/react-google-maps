@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-google-maps/static/css/main.c24c5b46.css",
+    "main.js": "/react-google-maps/static/js/main.05ad7926.js",
+    "index.html": "/react-google-maps/index.html",
+    "main.c24c5b46.css.map": "/react-google-maps/static/css/main.c24c5b46.css.map",
+    "main.05ad7926.js.map": "/react-google-maps/static/js/main.05ad7926.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c24c5b46.css",
+    "static/js/main.05ad7926.js"
+  ]
+}
