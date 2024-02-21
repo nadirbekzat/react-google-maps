@@ -20,9 +20,7 @@ function App() {
 
   useEffect(() => {
     if (isLoaded) {
-      // Initialize Autocomplete on the origin input
       new window.google.maps.places.Autocomplete(originRef.current);
-      // Initialize Autocomplete on the destination input
       new window.google.maps.places.Autocomplete(destinationRef.current);
     }
   }, [isLoaded]);
@@ -75,33 +73,37 @@ function App() {
           )}
         </GoogleMap>
       </div>
-      <div className="p-4 bg-white shadow rounded m-4" style={{ minWidth: '500px', zIndex: 1 }}>
-        <div className="d-flex justify-content-between mb-4">
-          <div className="flex-grow-1 me-2">
+      <div className="p-4 bg-white bg-opacity-50 shadow rounded m-4 border border-secondary" style={{ minWidth: '300px', maxWidth: '90%', zIndex: 1 }}>
+        <div className="row g-2 mb-2 justify-content-center">
+          <div className="col-6">
             <input type="text" className="form-control" placeholder="Origin" ref={originRef} />
           </div>
-          <div className="flex-grow-1 ms-2">
+          <div className="col-6">
             <input type="text" className="form-control" placeholder="Destination" ref={destinationRef} />
           </div>
-          <div>
-            <button className="btn btn-primary me-2" type="submit" onClick={calculateRoute}>
-              Calculate Route
+        </div>
+        <div className="row g-2 mb-2 justify-content-center">
+          <div className="col-4">
+            <button className="btn btn-primary w-100" onClick={calculateRoute}>
+              Find Route
             </button>
-            <button className="btn btn-secondary" onClick={clearRoute}>
+          </div>
+          <div className="col-4">
+            <button className="btn btn-secondary w-100" onClick={clearRoute}>
               Clear
             </button>
           </div>
+          <div className="col-4">
+            <button className="btn btn-info w-100" onClick={() => {
+              map.panTo(center);
+              map.setZoom(15);
+            }}>
+              Reset
+            </button>
+          </div>
         </div>
-        <div className="d-flex justify-content-between">
-          <span>Distance: {distance}</span>
-          <span>Duration: {duration}</span>
-          <button className="btn btn-info" onClick={() => {
-            map.panTo(center);
-            map.setZoom(15);
-          }}>
-            Reset View
-          </button>
-        </div>
+        <div className="text-center mb-2">Distance: {distance}</div>
+        <div className="text-center">Duration: {duration}</div>
       </div>
     </div>
   );
