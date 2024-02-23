@@ -2,7 +2,7 @@
 
 ## What is covered?
 
-1. Google maps in React
+1. Google maps in React.
 2. Adding Markers
 3. Panning and zooming maps
 4. Disable default controls
